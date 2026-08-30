@@ -3,30 +3,30 @@
 
 import numpy as np
 
-# random_number_generator=np.random.default_rng()
-# print(random_number_generator.integers(1,7)) # this generate any random number from 1 to 7
+random_number_generator=np.random.default_rng()
+print(random_number_generator.integers(1,7)) # this generate any random number from 1 to 7
 
 
-# random_number_generator=np.random.default_rng()
-# print(random_number_generator.integers(1,7,size=3)) # this generate any random number from 1 to 7 and size=3 means any 3 random number
+random_number_generator=np.random.default_rng()
+print(random_number_generator.integers(1,7,size=3)) # this generate any random number from 1 to 7 and size=3 means any 3 random number
 
-# random_number_generator=np.random.default_rng()
-# print(random_number_generator.integers(1,7,size=(3,2))) # this gives in 2D format
+random_number_generator=np.random.default_rng()
+print(random_number_generator.integers(1,7,size=(3,2))) # this gives in 2D format
 
 # for decimal values
 
-# print(np.random.uniform()) # This generates a random decimal number between 0 and 1.
+print(np.random.uniform()) # This generates a random decimal number between 0 and 1.
 
-# print(np.random.uniform(-1,1)) # This generates a random decimal number between -1 and 1.
+print(np.random.uniform(-1,1)) # This generates a random decimal number between -1 and 1.
 
-# print(np.random.uniform(-1,1,size=5))
+print(np.random.uniform(-1,1,size=5))
 
 # # using SHUFFLE METHOD
 
-# random_number_generator=np.random.default_rng()
-# array=np.array([1,22,3,4,5])
-# random_number_generator.shuffle(array)
-# print(array)
+random_number_generator=np.random.default_rng()
+array=np.array([1,22,3,4,5])
+random_number_generator.shuffle(array)
+print(array)
 
 # we can also use  CHOICE() method
 
