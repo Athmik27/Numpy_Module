@@ -334,3 +334,46 @@ a = np.array([
 result = np.vsplit(a, 2)
 print(result)
 
+(xi) copy():
+A copy creates a completely separate array.
+
+eg:
+import numpy as np
+a = np.array([10, 20, 30])
+
+b = a.copy()
+b[0] = 100
+print("a =", a)
+print("b =", b)
+
+(xii) view():
+A view does not create a separate copy of the data.
+It gives you another way to access the same underlying data.
+
+eg:
+import numpy as np
+a = np.array([10, 20, 30])
+
+b = a.view()
+b[0] = 100
+print("a =", a)
+print("b =", b)
+
+(xiii) np.where():
+np.where() is used to find positions or select values based on a condition.
+It is similar to an if condition, but it works efficiently with NumPy arrays.
+
+Syntax:
+np.where(condition)
+
+eg:
+import numpy as np
+a = np.array([10, 25, 30, 45, 50])
+
+result = np.where(a > 30)
+print(result)
+
+
+
+
+
