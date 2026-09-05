@@ -226,7 +226,7 @@ a = np.array([
 print(a.ravel())
 
 
-(iv) Numpy Transpose .T ⭐
+(iv) Numpy Transpose .T 
 This transpose changes:
 Rows to columns and columns to rows
  
@@ -461,3 +461,13 @@ a = np.random.uniform(10, 20, 5)
 print(a)
 
 
+Note:
+np.sum(a)             # Sum
+np.min(a)             # Minimum
+np.max(a)             # Maximum
+np.mean(a)            # Mean
+np.median(a)          # Median
+np.std(a)             # Standard deviation
+np.var(a)             # Variance
+np.round(a, 2)        # Rounding
+np.percentile(a, 50)  # Percentile
