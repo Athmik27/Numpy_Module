@@ -26,9 +26,7 @@ For Example:
             [40, 50, 60]
             ])
 
-a[row, column]
-   ↓     ↓
-   1     1
+
 
 Property	              Meaning
 ndim	                  Number of dimensions
@@ -99,9 +97,8 @@ eg:
 ]) 
 
 we Visualize it like:
-
             Column
-           0    1    2
+             0    1    2
         ┌──────────────
 Row 0   │ 10   20   30
 Row 1   │ 40   50   60
