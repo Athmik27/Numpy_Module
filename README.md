@@ -370,10 +370,97 @@ eg:
 import numpy as np
 a = np.array([10, 25, 30, 45, 50])
 
+indices = np.where(a > 30)
+print(a[indices])
+
+Syntax:
+np.where(condition, value_if_true, value_if_false)
+
+eg:
+import numpy as np
+marks = np.array([35, 80, 45, 90, 20])
+
+result = np.where(marks >= 40, "Pass", "Fail")
+print(result)
+
+
+(xiv)np.sort():
+
+Syntax:
+np.sort(array)
+
+eg:
+import numpy as np
+a = np.array([50, 20, 40, 10, 30])
+
+result = np.sort(a)
+print(result) 
+
 result = np.where(a > 30)
 print(result)
 
 
+(xv) np.argsort():
+np.argsort() returns the indices that would arrange the array in sorted order.
 
+eg:
+import numpy as np
+a = np.array([50, 20, 40, 10, 30])
+
+result = np.argsort(a)
+print(result)
+
+
+(xvi) np.unique():
+np.unique() is used to find the unique (non-repeated) values in an array.
+It removes duplicate values.
+
+Syntax:
+np.unique(array)
+
+eg:
+import numpy as np
+a = np.array([10, 20, 10, 30, 20, 40, 30])
+
+result = np.unique(a)
+print(result)
+
+(xvii) np.random.random():
+Generates random decimal numbers between 0 and 1.
+
+Syntax:
+np.random.random(size)
+
+eg:
+import numpy as np
+a = np.random.random(5)
+
+print(a)
+
+
+(xviii) np.random.randint()
+Generates random integers.
+
+Syntax:
+np.random.randint(start, stop, size)
+stop value is not included.
+
+eg:
+import numpy as np
+a = np.random.randint(1, 10, 5)
+
+print(a)
+
+(xix) np.random.uniform():
+Generates random decimal numbers within a specified range.
+
+Syntax:
+np.random.uniform(low, high, size)
+
+eg:
+import numpy as np
+a = np.random.uniform(10, 20, 5)
+
+print(a)
 
 
