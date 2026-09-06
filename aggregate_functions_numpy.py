@@ -8,13 +8,14 @@ print(np.sum(array))
 
 # we can use keyword such as:
 
-# mean
-#std
-#var
-#min
-#max
-#argmin
-#argmax
+#   mean
+#   std
+#   var
+#   min
+#   max
+#   argmin
+#   argmax
+#   median (middle value of array)
 
 # sum function
 

@@ -41,5 +41,11 @@ print(array_1 / array_2)
 scores=np.array([80,75,85,90,95,65])
 
 print(scores == 100 )# gives the boolean answer after checking the condition
-scores[scores<80]=0
+scores[scores<80]=0 # here it prints those value which are greater than 80 and any number below 80 it prints as 0.
 print(scores)
+
+#for matrix multiplication  numpy uses   a @ b 'or' np.matmul(a, b)
+
+# array[condition] = new_value
+# means:
+# find the elements that satisfy the condition and replace them with the new value.
