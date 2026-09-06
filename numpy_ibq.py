@@ -1,7 +1,7 @@
 # number to be printed is greater than 40.
 import numpy as np
 arr = np.array([10, 25, 30, 45, 50, 65, 70])
-var_num=arr[arr>40]
+var_num=arr[arr>40] 
 print(var_num)
 
 # Write NumPy code to replace every element greater than 30 with 0.
