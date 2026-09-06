@@ -15,17 +15,38 @@ print(array[0:3]) # here end index is exclusive
 print(array[1:])
 
 #row selection
-print(array[0:4:2]) 
+
+print(array[0:4:2])
+# 0 → start at index 0
+# 4 → stop before index 4
+# 2 → jump by 2 positions or take every 2nd element.
+
 # or
+
 print(array[::2])
-print(array[::-1])# output is in form of reversed manner
+# start → omitted → start from beginning
+# stop → omitted → go until the end
+# step → 2 → take every 2nd element
+
+print(array[::-1])
+# output is in form of reversed manner
+# negative step (-1, -2, etc.) means move backward.
 
 #column selection
-# for slicing[row:column]
+
+# for slicing[row_slice : column_slice]
+
 print(array[ : ,0:3])
 
- #for row and column
-print(array[0:2,0:2])# array[row,column]
+# : → all rows
+# 0:3 → columns 0, 1, 2
+# Column 3 is excluded.
+
+#for row and column
+
+#array[row_start:row_stop, column_start:column_stop]
+print(array[0:2,0:2])
+# array[row,column]
 
 
 
