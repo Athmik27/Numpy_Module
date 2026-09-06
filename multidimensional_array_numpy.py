@@ -22,6 +22,7 @@ print(array.shape)
 
 array=np.array([['A','B','C'],['D','E'],['F','G','H']])
 print(array.ndim)
+
 # this gives an error as in list there are 3 element where-as in 2nd list there are only 2 elements
 #ValueError: setting an array element with a sequence.
 
@@ -50,3 +51,40 @@ print(array[0,0,0])
 word=array[0,0,0]+ array[2,0,0]+array[2,0,0]
 print(word)
 #array[layer,row,column] format
+
+# # remember this below 
+
+    #   np.array('A') → 0D array
+    #   np.array(['A']) → 1D array
+    #   np.array([['A']]) → 2D array
+
+# np.array('A')
+# ndim  → 0
+# shape → ()
+
+# np.array(['A'])
+# ndim  → 1
+# shape → (1,)
+
+# np.array([['A']])
+# ndim  → 2
+# shape → (1, 1)
+
+ #Indexing a 2D array
+
+arr = np.array([
+    [10, 20, 30],
+    [40, 50, 60]
+])
+
+ # Syntax: arr[row, column]
+print(arr[1, 2])
+
+
+# Getting an entire row
+
+print(arr[0])
+
+# Getting an entire column
+
+print(arr[:, 1])
