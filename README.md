@@ -703,7 +703,7 @@ arr[0, 1] = 999
 
 ---
 
-# 15. Copy vs View
+# Copy vs View
 
 This is important.
 
@@ -738,7 +738,7 @@ view() → shared data
 
 ---
 
-# 16. Array Shape
+# Array Shape
 
 You can inspect shape:
 
@@ -765,7 +765,7 @@ Output:
 
 ---
 
-# 17. Reshape
+# Reshape
 
 `reshape()` changes the shape without changing the data.
 
@@ -836,7 +836,7 @@ NumPy calculates `-1` as `3`.
 
 ---
 
-# 18. Flatten and Ravel
+# Flatten and Ravel
 
 Convert a multidimensional array into 1D.
 
@@ -865,7 +865,7 @@ ravel()   → view when possible
 
 ---
 
-# 19. Iteration
+#  Iteration
 
 ## 1D
 
@@ -909,7 +909,7 @@ for x in np.nditer(arr):
 
 ---
 
-# 20. Joining Arrays
+# Joining Arrays
 
 ## `concatenate()`
 
@@ -980,7 +980,7 @@ np.hstack((a, b))
 
 ---
 
-# 21. Splitting Arrays
+#  Splitting Arrays
 
 ## `array_split()`
 
@@ -1012,7 +1012,7 @@ np.split(arr, 3)
 
 ---
 
-# 22. Searching Arrays
+#  Searching Arrays
 
 Use:
 
@@ -1040,7 +1040,7 @@ np.where(arr > 20)
 
 ---
 
-# 23. Filtering Arrays
+#  Filtering Arrays
 
 Boolean filtering:
 
@@ -1072,7 +1072,7 @@ Remember:
 
 ---
 
-# 24. `where()`
+#  `where()`
 
 `np.where()` can also replace values conditionally.
 
@@ -1107,7 +1107,7 @@ np.where(condition, value_if_true, value_if_false)
 
 ---
 
-# 25. Sorting
+#  Sorting
 
 ```python
 arr = np.array([30, 10, 50, 20])
@@ -1141,7 +1141,7 @@ Sort rows.
 
 ---
 
-# 26. Arithmetic Operations
+#  Arithmetic Operations
 
 NumPy supports element-wise arithmetic.
 
@@ -1188,7 +1188,7 @@ a ** 2
 
 ---
 
-# 27. Broadcasting
+#  Broadcasting
 
 **Broadcasting** allows NumPy to perform operations between arrays with compatible shapes.
 
@@ -1265,7 +1265,7 @@ Result:
 
 ---
 
-# 28. Universal Functions
+#  Universal Functions
 
 NumPy provides mathematical functions that work element-by-element.
 
@@ -1309,7 +1309,7 @@ Result:
 
 ---
 
-# 29. Aggregate Functions
+# Aggregate Functions
 
 These calculate summary values.
 
@@ -1367,7 +1367,7 @@ np.prod(arr)
 
 ---
 
-# 30. Axis
+#  Axis
 
 **Axis is one of the most important NumPy concepts.**
 
@@ -1443,7 +1443,7 @@ axis=1 → operate ACROSS
 
 ---
 
-# 31. Random Module
+#  Random Module
 
 NumPy provides:
 
@@ -1455,7 +1455,7 @@ for generating random numbers.
 
 ---
 
-# 32. Random Integer
+# Random Integer
 
 ```python
 np.random.randint(1, 10)
@@ -1498,7 +1498,7 @@ Creates:
 
 ---
 
-# 33. Random Float
+#  Random Float
 
 ```python
 np.random.random()
@@ -1534,7 +1534,7 @@ Values are between 10 and 20.
 
 ---
 
-# 34. Random Normal Distribution
+#  Random Normal Distribution
 
 ```python
 np.random.normal(
@@ -1561,7 +1561,7 @@ This is useful for:
 
 ---
 
-# 35. Random Choice
+# Random Choice
 
 Select random elements:
 
@@ -1584,7 +1584,7 @@ np.random.choice(
 
 ---
 
-# 36. Random Seed
+# Random Seed
 
 Random numbers normally change every time.
 
@@ -1613,7 +1613,7 @@ Useful when:
 
 ---
 
-# 37. Linear Algebra
+#  Linear Algebra
 
 NumPy provides many linear algebra operations.
 
@@ -1666,7 +1666,7 @@ np.dot(a, b)
 
 ---
 
-# 38. Matrix Operations
+#  Matrix Operations
 
 ## Determinant
 
@@ -1696,7 +1696,7 @@ These are more advanced but important for numerical computing and ML.
 
 ---
 
-# 39. Handling NaN and Infinity
+# Handling NaN and Infinity
 
 NumPy can represent missing numerical values using:
 
@@ -1772,7 +1772,7 @@ np.isinf(arr)
 
 ---
 
-# 40. Statistical Functions
+#  Statistical Functions
 
 Common functions:
 
@@ -1802,7 +1802,7 @@ Finds the 25th percentile.
 
 ---
 
-# 41. Unique Values
+#  Unique Values
 
 ```python
 arr = np.array([
@@ -1831,7 +1831,7 @@ values, counts = np.unique(
 
 ---
 
-# 42. Set Operations
+# Set Operations
 
 NumPy provides set-like operations.
 
@@ -1855,7 +1855,7 @@ np.setdiff1d(a, b)
 
 ---
 
-# 43. Saving and Loading Arrays
+#  Saving and Loading Arrays
 
 ## Save
 
@@ -1888,7 +1888,7 @@ np.savez(
 
 ---
 
-# 44. Performance
+#  Performance
 
 One major advantage of NumPy is **speed**.
 
@@ -1927,7 +1927,7 @@ over unnecessary Python loops.
 
 ---
 
-# 45. NumPy for Machine Learning
+#  NumPy for Machine Learning
 
 NumPy is extremely important in Machine Learning.
 
@@ -2003,7 +2003,7 @@ is important.
 
 ---
 
-# 46. Common Errors
+#  Common Errors
 
 ## Shape mismatch
 
@@ -2161,59 +2161,13 @@ np.random.choice()
 np.random.seed()
 ```
 
----
 
-# 48. NumPy Learning Path
 
-Learn NumPy in this order:
 
-```text
-1.  What is NumPy?
-        ↓
-2.  np.array()
-        ↓
-3.  1D / 2D / 3D arrays
-        ↓
-4.  ndim / shape / size / dtype
-        ↓
-5.  Indexing
-        ↓
-6.  Slicing
-        ↓
-7.  Array operations
-        ↓
-8.  Reshape
-        ↓
-9.  Axis
-        ↓
-10. Aggregate functions
-        ↓
-11. Boolean filtering
-        ↓
-12. np.where()
-        ↓
-13. Broadcasting
-        ↓
-14. concatenate / stack
-        ↓
-15. split
-        ↓
-16. sort
-        ↓
-17. Random module
-        ↓
-18. Statistics
-        ↓
-19. Linear algebra
-        ↓
-20. NumPy + Pandas
-        ↓
-21. NumPy + Machine Learning
-```
 
----
 
-# 49. Quick Revision Cheat Sheet
+
+# Quick Revision Cheat Sheet
 
 ```python
 import numpy as np
@@ -2341,4 +2295,4 @@ arr = np.load("data.npy")
 ```
 
 
-Once you understand **NumPy + Pandas**, you're building a strong foundation for **Data Science and Machine Learning in Python**.
+
