@@ -1,211 +1,78 @@
+#  NumPy Module 
 
-#  What is NumPy?
-
-**NumPy** stands for:
-
-> **Numerical Python**
-
-It is a Python library mainly used for:
-
-* Numerical computation
-* Arrays
-* Mathematical operations
-* Statistics
-* Linear algebra
-* Random number generation
-* Scientific computing
-* Machine Learning
-
-
-#  Why NumPy?
-
-Python lists can store numbers:
-
-```python
-numbers = [10, 20, 30, 40]
-```
-
-But NumPy arrays are designed specifically for numerical operations.
+NumPy is a Python library used for **numerical operations and working with arrays**.
 
 ```python
 import numpy as np
-
-numbers = np.array([10, 20, 30, 40])
 ```
-
-You can perform operations directly:
-
-```python
-numbers * 2
-```
-
-Result:
-
-```text
-[20 40 60 80]
-```
-
-This is one of the major advantages of NumPy.
 
 ---
 
-#  NumPy Array
+# 1. Create NumPy Array 
 
-The main data structure in NumPy is the:
+```python
+a = np.array([1, 2, 3, 4, 5])
+```
 
-> **ndarray**
+2D array:
+
+```python
+a = np.array([[1, 2], [3, 4]])
+```
+
+---
+
+# 2. Array Properties 
+
+```python
+a.ndim       # number of dimensions
+a.shape      # rows and columns
+a.size       # total elements
+a.dtype      # data type
+```
 
 Example:
 
 ```python
-import numpy as np
+a = np.array([[1, 2], [3, 4]])
 
-arr = np.array([10, 20, 30, 40])
-
-print(arr)
-```
-
-Output:
-
-```text
-[10 20 30 40]
-```
-
-Check its type:
-
-```python
-print(type(arr))
-```
-
-Output:
-
-```text
-<class 'numpy.ndarray'>
+print(a.ndim)
+print(a.shape)
+print(a.size)
+print(a.dtype)
 ```
 
 ---
 
-# Creating Arrays
-
-## From a Python list
-
-```python
-arr = np.array([1, 2, 3, 4, 5])
-```
-
----
-
-## 2D array
-
-```python
-arr = np.array([
-    [1, 2, 3],
-    [4, 5, 6]
-])
-```
-
-Output:
-
-```text
-[[1 2 3]
- [4 5 6]]
-```
-
----
-
-## 3D array
-
-```python
-arr = np.array([
-    [
-        [1, 2],
-        [3, 4]
-    ],
-    [
-        [5, 6],
-        [7, 8]
-    ]
-])
-```
-
----
-
-## `zeros()`
-
-Creates an array filled with zero.
+# 3. Create Special Arrays 
 
 ```python
 np.zeros(5)
-```
-
-Output:
-
-```text
-[0. 0. 0. 0. 0.]
+np.ones(5)
+np.full(5, 10)
 ```
 
 2D:
 
 ```python
 np.zeros((2, 3))
-```
-
----
-
-## `ones()`
-
-```python
-np.ones(5)
-```
-
-2D:
-
-```python
 np.ones((2, 3))
 ```
 
 ---
 
-## `full()`
+# 4. `arange()` 
 
-Create an array filled with a specific value:
+Creates values with a step.
 
 ```python
-np.full(5, 10)
+np.arange(0, 10, 2)
 ```
 
 Output:
 
 ```text
-[10 10 10 10 10]
-```
-
----
-
-## `arange()`
-
-Creates values within a range.
-
-```python
-np.arange(1, 10)
-```
-
-Output:
-
-```text
-[1 2 3 4 5 6 7 8 9]
-```
-
-With step:
-
-```python
-np.arange(1, 10, 2)
-```
-
-Output:
-
-```text
-[1 3 5 7 9]
+[0 2 4 6 8]
 ```
 
 Syntax:
@@ -214,312 +81,41 @@ Syntax:
 np.arange(start, stop, step)
 ```
 
-The `stop` value is normally excluded.
-
 ---
 
-## `linspace()`
+# 5. `linspace()` 
 
-Creates evenly spaced numbers.
+Creates evenly spaced values.
 
 ```python
 np.linspace(0, 10, 5)
 ```
 
-Output:
-
-```text
-[ 0.   2.5  5.   7.5 10. ]
-```
-
-Syntax:
-
-```python
-np.linspace(start, stop, number_of_values)
-```
-
-Unlike `arange()`, the endpoint is included by default.
-
 ---
 
-#  Array Dimensions
-
-NumPy arrays can have different dimensions.
-
-## 0D
-
-A single value:
+# 6. Indexing 
 
 ```python
-arr = np.array(10)
+a = np.array([10, 20, 30, 40])
+
+a[0]
+a[2]
+a[-1]
+```
+
+2D:
+
+```python
+a[0, 1]
 ```
 
 ---
 
-## 1D
+# 7. Slicing 
 
 ```python
-arr = np.array([1, 2, 3])
+a[1:4]
 ```
-
-Think:
-
-```text
-[1 2 3]
-```
-
----
-
-## 2D
-
-```python
-arr = np.array([
-    [1, 2],
-    [3, 4]
-])
-```
-
-Think:
-
-```text
-1 2
-3 4
-```
-
----
-
-## 3D
-
-An array containing multiple 2D arrays.
-
----
-
-## Check dimensions
-
-Use:
-
-```python
-arr.ndim
-```
-
-Example:
-
-```python
-arr = np.array([
-    [1, 2],
-    [3, 4]
-])
-
-print(arr.ndim)
-```
-
-Output:
-
-```text
-2
-```
-
----
-
-#  Array Attributes
-
-These are extremely important.
-
-```python
-arr.shape
-arr.ndim
-arr.size
-arr.dtype
-arr.itemsize
-```
-
----
-
-## `shape`
-
-Tells you the size along each dimension.
-
-```python
-arr = np.array([
-    [1, 2, 3],
-    [4, 5, 6]
-])
-
-print(arr.shape)
-```
-
-Output:
-
-```text
-(2, 3)
-```
-
-Meaning:
-
-```text
-2 rows
-3 columns
-```
-
----
-
-## `ndim`
-
-Number of dimensions:
-
-```python
-print(arr.ndim)
-```
-
----
-
-## `size`
-
-Total number of elements:
-
-```python
-print(arr.size)
-```
-
-For:
-
-```text
-[[1 2 3]
- [4 5 6]]
-```
-
-result:
-
-```text
-6
-```
-
----
-
-## `dtype`
-
-Data type:
-
-```python
-print(arr.dtype)
-```
-
----
-
-## `itemsize`
-
-Number of bytes used by one element:
-
-```python
-print(arr.itemsize)
-```
-
----
-
-#  Data Types
-
-NumPy supports many data types:
-
-```text
-int
-float
-bool
-complex
-string
-```
-
-Example:
-
-```python
-arr = np.array([1, 2, 3])
-
-print(arr.dtype)
-```
-
-Specify a type:
-
-```python
-arr = np.array(
-    [1, 2, 3],
-    dtype="float64"
-)
-```
-
----
-
-## Change data type
-
-Use:
-
-```python
-astype()
-```
-
-Example:
-
-```python
-arr = np.array([1, 2, 3])
-
-new_arr = arr.astype(float)
-```
-
----
-
-# Indexing
-
-Indexing starts at `0`.
-
-```python
-arr = np.array([10, 20, 30, 40])
-```
-
-```python
-print(arr[0])
-```
-
-Output:
-
-```text
-10
-```
-
-```python
-print(arr[2])
-```
-
-Output:
-
-```text
-30
-```
-
----
-
-## Negative indexing
-
-```python
-print(arr[-1])
-```
-
-Output:
-
-```text
-40
-```
-
-```python
-print(arr[-2])
-```
-
-Output:
-
-```text
-30
-```
-
----
-
-#  Slicing
 
 Syntax:
 
@@ -530,1769 +126,334 @@ array[start:stop:step]
 Example:
 
 ```python
-arr = np.array([10, 20, 30, 40, 50])
-```
-
-```python
-arr[1:4]
-```
-
-Result:
-
-```text
-[20 30 40]
+a[::2]
 ```
 
 ---
 
-## Step
+# 8. Reshape 
+
+Change the shape of an array.
 
 ```python
-arr[::2]
-```
+a = np.array([1, 2, 3, 4, 5, 6])
 
-Result:
-
-```text
-[10 30 50]
-```
-
----
-
-## Reverse
-
-```python
-arr[::-1]
-```
-
-Result:
-
-```text
-[50 40 30 20 10]
-```
-
----
-
-#  2D Array Indexing
-
-Example:
-
-```python
-arr = np.array([
-    [10, 20, 30],
-    [40, 50, 60]
-])
-```
-
-Access first row:
-
-```python
-arr[0]
-```
-
-Output:
-
-```text
-[10 20 30]
-```
-
-Access first row, second column:
-
-```python
-arr[0, 1]
-```
-
-Output:
-
-```text
-20
-```
-
-General syntax:
-
-```python
-arr[row, column]
-```
-
----
-
-## Select a row
-
-```python
-arr[1, :]
-```
-
----
-
-## Select a column
-
-```python
-arr[:, 1]
-```
-
----
-
-#  3D Arrays
-
-A 3D array has:
-
-```text
-depth
-rows
-columns
-```
-
-Example:
-
-```python
-arr = np.array([
-    [
-        [1, 2],
-        [3, 4]
-    ],
-    [
-        [5, 6],
-        [7, 8]
-    ]
-])
-```
-
-Shape:
-
-```python
-print(arr.shape)
-```
-
-Output:
-
-```text
-(2, 2, 2)
-```
-
-Meaning:
-
-```text
-2 blocks
-2 rows
-2 columns
-```
-
----
-
-#  Changing Array Values
-
-```python
-arr = np.array([10, 20, 30, 40])
-
-arr[1] = 100
-
-print(arr)
-```
-
-Output:
-
-```text
-[ 10 100  30  40]
-```
-
-For 2D:
-
-```python
-arr[0, 1] = 999
-```
-
----
-
-# Copy vs View
-
-This is important.
-
-## Copy
-
-Creates a separate array.
-
-```python
-copy_arr = arr.copy()
-```
-
-Changes to the copy do not affect the original.
-
----
-
-## View
-
-A view shares the underlying data.
-
-```python
-view_arr = arr.view()
-```
-
-Changes to the view can affect the original array.
-
-Remember:
-
-```text
-copy() → independent data
-view() → shared data
-```
-
----
-
-# Array Shape
-
-You can inspect shape:
-
-```python
-arr.shape
-```
-
-Example:
-
-```python
-arr = np.array([
-    [1, 2, 3],
-    [4, 5, 6]
-])
-
-print(arr.shape)
-```
-
-Output:
-
-```text
-(2, 3)
-```
-
----
-
-# Reshape
-
-`reshape()` changes the shape without changing the data.
-
-Example:
-
-```python
-arr = np.array([1, 2, 3, 4, 5, 6])
-
-new_arr = arr.reshape(2, 3)
-```
-
-Result:
-
-```text
-[[1 2 3]
- [4 5 6]]
+a.reshape(2, 3)
 ```
 
 Important:
 
-The total number of elements must remain the same.
-
 ```text
-6 elements
-↓
-2 × 3 = 6
-```
-
-Therefore:
-
-```python
-arr.reshape(3, 2)
-```
-
-also works.
-
-But:
-
-```python
-arr.reshape(4, 2)
-```
-
-❌ doesn't work because:
-
-```text
-4 × 2 = 8
-```
-
-and the original has only 6 elements.
-
----
-
-## `-1` in reshape
-
-NumPy can calculate one dimension automatically.
-
-```python
-arr.reshape(2, -1)
-```
-
-If there are 6 elements:
-
-```text
-2 × 3
-```
-
-NumPy calculates `-1` as `3`.
-
----
-
-# Flatten and Ravel
-
-Convert a multidimensional array into 1D.
-
-## `flatten()`
-
-```python
-arr.flatten()
-```
-
-Returns a copy.
-
-## `ravel()`
-
-```python
-arr.ravel()
-```
-
-Usually returns a view when possible.
-
-Remember:
-
-```text
-flatten() → copy
-ravel()   → view when possible
+Number of elements must remain the same.
 ```
 
 ---
 
-#  Iteration
+# 9. Flatten 
 
-## 1D
+Convert multidimensional array into 1D.
 
 ```python
-arr = np.array([10, 20, 30])
-
-for x in arr:
-    print(x)
+a.flatten()
 ```
 
 ---
 
-## 2D
+# 10. Mathematical Operations 
 
 ```python
-arr = np.array([
-    [1, 2],
-    [3, 4]
-])
-
-for row in arr:
-    print(row)
+np.sum(a)
+np.mean(a)
+np.median(a)
+np.min(a)
+np.max(a)
+np.std(a)
+np.var(a)
 ```
 
 ---
 
-## Iterate every element
+# 11. Axis 
+
+For:
 
 ```python
-for row in arr:
-    for value in row:
-        print(value)
-```
-
-For multidimensional arrays, `np.nditer()` is useful:
-
-```python
-for x in np.nditer(arr):
-    print(x)
-```
-
----
-
-# Joining Arrays
-
-## `concatenate()`
-
-```python
-a = np.array([1, 2])
-b = np.array([3, 4])
-
-result = np.concatenate((a, b))
-```
-
-Result:
-
-```text
-[1 2 3 4]
-```
-
----
-
-## 2D concatenation
-
-```python
-np.concatenate(
-    (a, b),
-    axis=0
-)
-```
-
-or:
-
-```python
-np.concatenate(
-    (a, b),
-    axis=1
-)
-```
-
-The shapes must be compatible with the chosen axis.
-
----
-
-## `stack()`
-
-```python
-np.stack((a, b))
-```
-
-Creates a new dimension.
-
----
-
-## `vstack()`
-
-Vertical stacking:
-
-```python
-np.vstack((a, b))
-```
-
----
-
-## `hstack()`
-
-Horizontal stacking:
-
-```python
-np.hstack((a, b))
-```
-
----
-
-#  Splitting Arrays
-
-## `array_split()`
-
-```python
-arr = np.array([1, 2, 3, 4, 5, 6])
-
-np.array_split(arr, 3)
-```
-
-Result:
-
-```text
-[1 2]
-[3 4]
-[5 6]
-```
-
----
-
-## `split()`
-
-```python
-np.split(arr, 3)
-```
-
-`split()` requires equal-sized splits.
-
-`array_split()` can handle uneven splits.
-
----
-
-#  Searching Arrays
-
-Use:
-
-```python
-np.where()
-```
-
-Example:
-
-```python
-arr = np.array([10, 20, 30, 40])
-
-np.where(arr == 30)
-```
-
-It returns the index where the condition is true.
-
----
-
-## Find values greater than 20
-
-```python
-np.where(arr > 20)
-```
-
----
-
-#  Filtering Arrays
-
-Boolean filtering:
-
-```python
-arr = np.array([10, 20, 30, 40, 50])
-
-result = arr[arr > 25]
-```
-
-Result:
-
-```text
-[30 40 50]
-```
-
-Multiple conditions:
-
-```python
-arr[(arr > 20) & (arr < 50)]
-```
-
-Remember:
-
-```text
-& → AND
-| → OR
-~ → NOT
-```
-
----
-
-#  `where()`
-
-`np.where()` can also replace values conditionally.
-
-```python
-arr = np.array([10, 20, 30, 40])
-
-result = np.where(
-    arr > 25,
-    100,
-    0
-)
-```
-
-Meaning:
-
-```text
-If value > 25 → 100
-Otherwise      → 0
-```
-
-Result:
-
-```text
-[  0   0 100 100]
-```
-
-Syntax:
-
-```python
-np.where(condition, value_if_true, value_if_false)
-```
-
----
-
-#  Sorting
-
-```python
-arr = np.array([30, 10, 50, 20])
-
-np.sort(arr)
-```
-
-Result:
-
-```text
-[10 20 30 50]
-```
-
-Original array is not modified.
-
----
-
-## 2D sorting
-
-```python
-np.sort(arr, axis=0)
-```
-
-Sort columns.
-
-```python
-np.sort(arr, axis=1)
-```
-
-Sort rows.
-
----
-
-#  Arithmetic Operations
-
-NumPy supports element-wise arithmetic.
-
-```python
-a = np.array([10, 20, 30])
-b = np.array([1, 2, 3])
-```
-
-Addition:
-
-```python
-a + b
-```
-
-Result:
-
-```text
-[11 22 33]
-```
-
-Subtraction:
-
-```python
-a - b
-```
-
-Multiplication:
-
-```python
-a * b
-```
-
-Division:
-
-```python
-a / b
-```
-
-Power:
-
-```python
-a ** 2
-```
-
----
-
-#  Broadcasting
-
-**Broadcasting** allows NumPy to perform operations between arrays with compatible shapes.
-
-Example:
-
-```python
-arr = np.array([10, 20, 30])
-
-arr + 5
-```
-
-Result:
-
-```text
-[15 25 35]
-```
-
-NumPy effectively treats `5` as:
-
-```text
-[5 5 5]
-```
-
----
-
-## 2D example
-
-```python
-arr = np.array([
-    [1, 2, 3],
-    [4, 5, 6]
-])
-
-arr + 10
-```
-
-Result:
-
-```text
-[[11 12 13]
- [14 15 16]]
-```
-
----
-
-## Broadcasting rule
-
-Shapes are compared from the **rightmost dimension**.
-
-Two dimensions are compatible if:
-
-```text
-They are equal
-OR
-One of them is 1
-OR
-One dimension does not exist
-```
-
-Example:
-
-```text
-(2, 3)
-(3,)
-```
-
-Compatible.
-
-Result:
-
-```text
-(2, 3)
-```
-
----
-
-#  Universal Functions
-
-NumPy provides mathematical functions that work element-by-element.
-
-```python
-np.sqrt(arr)
-np.abs(arr)
-np.exp(arr)
-np.log(arr)
-np.sin(arr)
-np.cos(arr)
-np.round(arr)
-```
-
----
-
-## Square root
-
-```python
-np.sqrt([4, 9, 16])
-```
-
-Result:
-
-```text
-[2. 3. 4.]
-```
-
----
-
-## Absolute value
-
-```python
-np.abs([-10, -20, 30])
-```
-
-Result:
-
-```text
-[10 20 30]
-```
-
----
-
-# Aggregate Functions
-
-These calculate summary values.
-
-```python
-arr = np.array([10, 20, 30, 40])
-```
-
-Sum:
-
-```python
-np.sum(arr)
-```
-
-Mean:
-
-```python
-np.mean(arr)
-```
-
-Minimum:
-
-```python
-np.min(arr)
-```
-
-Maximum:
-
-```python
-np.max(arr)
-```
-
-Standard deviation:
-
-```python
-np.std(arr)
-```
-
-Variance:
-
-```python
-np.var(arr)
-```
-
-Median:
-
-```python
-np.median(arr)
-```
-
-Product:
-
-```python
-np.prod(arr)
-```
-
----
-
-#  Axis
-
-**Axis is one of the most important NumPy concepts.**
-
-For a 2D array:
-
-```text
-       columns
-         ↓
-      1  2  3
-      4  5  6
-      7  8  9
-```
-
-```text
-axis=0 → down the rows
-axis=1 → across the columns
-```
-
-Example:
-
-```python
-arr = np.array([
+a = np.array([
     [1, 2, 3],
     [4, 5, 6]
 ])
 ```
 
-### `axis=0`
+Column-wise:
 
 ```python
-np.sum(arr, axis=0)
+np.sum(a, axis=0)
 ```
 
-Result:
-
-```text
-[5 7 9]
-```
-
-Calculation:
-
-```text
-1 + 4 = 5
-2 + 5 = 7
-3 + 6 = 9
-```
-
-### `axis=1`
+Row-wise:
 
 ```python
-np.sum(arr, axis=1)
-```
-
-Result:
-
-```text
-[ 6 15]
-```
-
-Calculation:
-
-```text
-1 + 2 + 3 = 6
-4 + 5 + 6 = 15
+np.sum(a, axis=1)
 ```
 
 ### Remember
 
 ```text
-axis=0 → operate DOWN
-axis=1 → operate ACROSS
+axis=0 → down the rows → column result
+axis=1 → across columns → row result
 ```
 
 ---
 
-#  Random Module
-
-NumPy provides:
+# 12. Sorting 
 
 ```python
-np.random
-```
-
-for generating random numbers.
-
----
-
-# Random Integer
-
-```python
-np.random.randint(1, 10)
-```
-
-Generates one random integer from:
-
-```text
-1 to 9
-```
-
-Generate multiple:
-
-```python
-np.random.randint(
-    1,
-    10,
-    size=5
-)
+np.sort(a)
 ```
 
 ---
 
-## 2D random integers
+# 13. Searching 
+
+Find positions:
 
 ```python
-np.random.randint(
-    1,
-    10,
-    size=(2, 3)
-)
+np.where(a > 5)
 ```
 
-Creates:
+Find maximum position:
 
-```text
-2 rows
-3 columns
+```python
+np.argmax(a)
+```
+
+Find minimum position:
+
+```python
+np.argmin(a)
 ```
 
 ---
 
-#  Random Float
+# 14. Filtering 
 
 ```python
-np.random.random()
+a[a > 5]
 ```
 
-Generates a random floating-point number between:
-
-```text
-0 and 1
-```
-
-Multiple:
+Multiple conditions:
 
 ```python
-np.random.random(5)
+a[(a > 5) & (a < 10)]
 ```
 
 ---
 
-## `uniform()`
-
-Generates random values from a uniform distribution.
+# 15. `where()` 
 
 ```python
-np.random.uniform(
-    low=10,
-    high=20,
-    size=5
-)
-```
-
-Values are between 10 and 20.
-
----
-
-#  Random Normal Distribution
-
-```python
-np.random.normal(
-    loc=50,
-    scale=10,
-    size=100
-)
+np.where(a > 5, "High", "Low")
 ```
 
 Meaning:
 
 ```text
-loc   → mean
-scale → standard deviation
-size  → number of values
-```
-
-This is useful for:
-
-* Statistics
-* Simulations
-* Data analysis
-* Machine Learning
-
----
-
-# Random Choice
-
-Select random elements:
-
-```python
-arr = np.array(
-    ["Python", "Java", "C"]
-)
-
-np.random.choice(arr)
-```
-
-Select multiple:
-
-```python
-np.random.choice(
-    arr,
-    size=5
-)
+condition → value if True → value if False
 ```
 
 ---
 
-# Random Seed
-
-Random numbers normally change every time.
-
-Use a seed for reproducible results:
+# 16. Random Numbers 
 
 ```python
-np.random.seed(42)
+np.random.rand(5)
 ```
 
-Then:
+Random integers:
 
 ```python
-np.random.randint(1, 100, 5)
+np.random.randint(1, 10, 5)
 ```
 
-will produce the same sequence each time with that seed.
-
-### Why?
-
-Useful when:
-
-* Testing
-* Debugging
-* Machine Learning
-* Sharing code
-
----
-
-#  Linear Algebra
-
-NumPy provides many linear algebra operations.
-
-Import:
+Uniform random values:
 
 ```python
-import numpy as np
+np.random.uniform(1, 10, 5)
 ```
 
-Matrix:
+Normal distribution:
 
 ```python
-A = np.array([
-    [1, 2],
-    [3, 4]
-])
+np.random.normal(loc=50, scale=10, size=5)
 ```
 
 ---
 
-## Matrix transpose
+# 17. Broadcasting 
+
+NumPy allows operations between arrays of compatible shapes.
 
 ```python
-A.T
+a = np.array([1, 2, 3])
+b = 10
+
+a + b
+```
+
+Output:
+
+```text
+[11 12 13]
 ```
 
 ---
 
-## Matrix multiplication
-
-Use:
+# 18. Array Arithmetic 
 
 ```python
-A @ B
+a + b
+a - b
+a * b
+a / b
+a ** 2
+```
+
+Element-wise operations are performed.
+
+---
+
+# 19. Matrix Multiplication 
+
+Element-wise multiplication:
+
+```python
+a * b
+```
+
+Matrix multiplication:
+
+```python
+a @ b
 ```
 
 or:
 
 ```python
-np.matmul(A, B)
+np.matmul(a, b)
 ```
 
 ---
 
-## Dot product
+# 20. Concatenate 
+
+Join arrays:
 
 ```python
-np.dot(a, b)
+np.concatenate((a, b))
+```
+
+For 2D arrays:
+
+```python
+np.concatenate((a, b), axis=0)
 ```
 
 ---
 
-#  Matrix Operations
-
-## Determinant
+# 21. Copy 
 
 ```python
-np.linalg.det(A)
+b = a.copy()
 ```
 
-## Inverse
+Creates an independent copy.
+
+Avoid:
 
 ```python
-np.linalg.inv(A)
+b = a
 ```
 
-## Eigenvalues
-
-```python
-np.linalg.eig(A)
-```
-
-## Solve equations
-
-```python
-np.linalg.solve(A, b)
-```
-
-These are more advanced but important for numerical computing and ML.
+because both variables can refer to the same array.
 
 ---
 
-# Handling NaN and Infinity
+# 22. Common NumPy Functions 
 
-NumPy can represent missing numerical values using:
-
-```python
-np.nan
-```
-
-Example:
-
-```python
-arr = np.array([
-    10,
-    20,
-    np.nan,
-    40
-])
-```
-
-Check NaN:
-
-```python
-np.isnan(arr)
-```
-
----
-
-## Sum with NaN
-
-Normal:
-
-```python
-np.sum(arr)
-```
-
-may produce `nan`.
-
-Use:
-
-```python
-np.nansum(arr)
-```
-
-This ignores NaN values.
-
-Similarly:
-
-```python
-np.nanmean(arr)
-np.nanmin(arr)
-np.nanmax(arr)
-np.nanmedian(arr)
-```
+| Function              | Use                   |
+| --------------------- | --------------------- |
+| `np.array()`          | Create array          |
+| `np.zeros()`          | Array of zeros        |
+| `np.ones()`           | Array of ones         |
+| `np.full()`           | Fill with value       |
+| `np.arange()`         | Values with step      |
+| `np.linspace()`       | Evenly spaced values  |
+| `np.reshape()`        | Change shape          |
+| `np.flatten()`        | Convert to 1D         |
+| `np.sum()`            | Sum                   |
+| `np.mean()`           | Average               |
+| `np.median()`         | Median                |
+| `np.min()`            | Minimum               |
+| `np.max()`            | Maximum               |
+| `np.sort()`           | Sort                  |
+| `np.where()`          | Conditional selection |
+| `np.argmax()`         | Position of maximum   |
+| `np.argmin()`         | Position of minimum   |
+| `np.concatenate()`    | Join arrays           |
+| `np.random.randint()` | Random integers       |
+| `np.random.uniform()` | Uniform random values |
+| `np.random.normal()`  | Normal distribution   |
 
 ---
 
-## Infinity
-
-```python
-np.inf
-```
-
-Negative infinity:
-
-```python
--np.inf
-```
-
-Check:
-
-```python
-np.isinf(arr)
-```
-
----
-
-#  Statistical Functions
-
-Common functions:
-
-```python
-np.mean(arr)
-np.median(arr)
-np.std(arr)
-np.var(arr)
-np.min(arr)
-np.max(arr)
-np.percentile(arr, 25)
-np.quantile(arr, 0.25)
-```
-
----
-
-## Percentile
-
-```python
-np.percentile(
-    arr,
-    25
-)
-```
-
-Finds the 25th percentile.
-
----
-
-#  Unique Values
-
-```python
-arr = np.array([
-    1, 2, 2, 3, 3, 3
-])
-
-np.unique(arr)
-```
-
-Result:
-
-```text
-[1 2 3]
-```
-
----
-
-## Unique with counts
-
-```python
-values, counts = np.unique(
-    arr,
-    return_counts=True
-)
-```
-
----
-
-# Set Operations
-
-NumPy provides set-like operations.
-
-## Union
-
-```python
-np.union1d(a, b)
-```
-
-## Intersection
-
-```python
-np.intersect1d(a, b)
-```
-
-## Difference
-
-```python
-np.setdiff1d(a, b)
-```
-
----
-
-#  Saving and Loading Arrays
-
-## Save
-
-```python
-np.save(
-    "data.npy",
-    arr
-)
-```
-
-## Load
-
-```python
-arr = np.load(
-    "data.npy"
-)
-```
-
----
-
-## Save multiple arrays
-
-```python
-np.savez(
-    "data.npz",
-    arr1=arr1,
-    arr2=arr2
-)
-```
-
----
-
-#  Performance
-
-One major advantage of NumPy is **speed**.
-
-Python loop:
-
-```python
-numbers = [1, 2, 3, 4, 5]
-
-result = []
-
-for x in numbers:
-    result.append(x * 2)
-```
-
-NumPy:
-
-```python
-numbers = np.array([
-    1, 2, 3, 4, 5
-])
-
-result = numbers * 2
-```
-
-NumPy performs operations using optimized numerical routines.
-
-### General rule
-
-Prefer:
-
-```python
-NumPy vectorized operations
-```
-
-over unnecessary Python loops.
-
----
-
-#  NumPy for Machine Learning
-
-NumPy is extremely important in Machine Learning.
-
-Typical ML data:
-
-```text
-Features → X
-Target   → y
-```
-
-Example:
-
-```python
-X = np.array([
-    [20, 170],
-    [25, 175],
-    [30, 180]
-])
-
-y = np.array([
-    0,
-    1,
-    1
-])
-```
-
-Here:
-
-```text
-X → input features
-y → target/output
-```
-
----
-
-## Train/test data
-
-Scikit-learn commonly works with NumPy arrays:
-
-```python
-from sklearn.model_selection import train_test_split
-
-X_train, X_test, y_train, y_test = train_test_split(
-    X,
-    y,
-    test_size=0.2,
-    random_state=42
-)
-```
-
----
-
-## Normalization
-
-A common ML operation:
-
-```python
-X_normalized = (
-    X - np.mean(X, axis=0)
-) / np.std(X, axis=0)
-```
-
-This demonstrates why understanding:
-
-```text
-mean()
-std()
-axis
-broadcasting
-```
-
-is important.
-
----
-
-#  Common Errors
-
-## Shape mismatch
-
-Example:
-
-```python
-a = np.array([1, 2, 3])
-b = np.array([1, 2])
-
-a + b
-```
-
-❌ Shapes are incompatible.
-
----
-
-## Reshape error
-
-```python
-arr.reshape(3, 3)
-```
-
-If the array has only 6 elements:
-
-❌ Cannot reshape 6 elements into 9 positions.
-
----
-
-## IndexError
-
-```python
-arr[100]
-```
-
-when the array has only 10 elements.
-
----
-
-## Broadcasting error
-
-If shapes cannot satisfy NumPy's broadcasting rules:
-
-```text
-ValueError
-```
-
-will occur.
-
----
-
-# 47. Important Functions
-
-## ⭐⭐⭐⭐⭐ MUST KNOW
-
-### Creating arrays
-
-```python
-np.array()
-np.zeros()
-np.ones()
-np.full()
-np.arange()
-np.linspace()
-```
-
-### Array properties
-
-```python
-arr.shape
-arr.ndim
-arr.size
-arr.dtype
-```
-
-### Indexing
-
-```python
-arr[0]
-arr[-1]
-arr[0, 1]
-```
-
-### Slicing
-
-```python
-arr[start:stop]
-arr[::step]
-arr[::-1]
-```
-
-### Reshaping
-
-```python
-arr.reshape()
-arr.flatten()
-arr.ravel()
-```
-
-### Searching/filtering
-
-```python
-np.where()
-arr[condition]
-```
-
-### Sorting
-
-```python
-np.sort()
-```
-
-### Aggregation
-
-```python
-np.sum()
-np.mean()
-np.min()
-np.max()
-np.median()
-np.std()
-np.var()
-```
-
-### Axis
-
-```python
-axis=0
-axis=1
-```
-
-### Combining
-
-```python
-np.concatenate()
-np.stack()
-np.vstack()
-np.hstack()
-```
-
-### Splitting
-
-```python
-np.split()
-np.array_split()
-```
-
-### Random
-
-```python
-np.random.randint()
-np.random.random()
-np.random.uniform()
-np.random.normal()
-np.random.choice()
-np.random.seed()
-```
-
-
-
-
-
-
-
-# Quick Revision Cheat Sheet
+# CHEAT SHEET
 
 ```python
 import numpy as np
 
-# Create array
-arr = np.array([1, 2, 3, 4])
+a = np.array([1, 2, 3])
 
-# Create 2D array
-arr = np.array([
-    [1, 2, 3],
-    [4, 5, 6]
-])
+a.ndim
+a.shape
+a.size
+a.dtype
 
-# Array properties
-arr.ndim
-arr.shape
-arr.size
-arr.dtype
-
-# Create arrays
 np.zeros(5)
 np.ones(5)
-np.full(5, 10)
-
-# Ranges
-np.arange(1, 10)
-np.arange(1, 10, 2)
+np.arange(0, 10, 2)
 np.linspace(0, 10, 5)
 
-# Indexing
-arr[0]
-arr[0, 1]
-arr[-1]
+a[0]
+a[1:4]
 
-# Slicing
-arr[1:4]
-arr[::2]
-arr[::-1]
+a.reshape(2, 3)
+a.flatten()
 
-# Reshape
-arr.reshape(2, 3)
-arr.reshape(3, 2)
-arr.reshape(2, -1)
+np.sum(a)
+np.mean(a)
+np.max(a)
+np.min(a)
+np.median(a)
+np.std(a)
 
-# Flatten
-arr.flatten()
-arr.ravel()
+np.sum(a, axis=0)
+np.sum(a, axis=1)
 
-# Copy / View
-arr.copy()
-arr.view()
+a[a > 5]
+np.where(a > 5)
 
-# Arithmetic
-arr + 10
-arr - 10
-arr * 2
-arr / 2
-arr ** 2
+np.argmax(a)
+np.argmin(a)
 
-# Filtering
-arr[arr > 10]
-
-# Where
-np.where(arr > 10)
-np.where(arr > 10, 1, 0)
-
-# Sorting
-np.sort(arr)
-
-# Aggregation
-np.sum(arr)
-np.mean(arr)
-np.min(arr)
-np.max(arr)
-np.median(arr)
-np.std(arr)
-np.var(arr)
-
-# Axis
-np.sum(arr, axis=0)
-np.sum(arr, axis=1)
-
-# Combining
-np.concatenate((a, b))
-np.stack((a, b))
-np.vstack((a, b))
-np.hstack((a, b))
-
-# Splitting
-np.split(arr, 2)
-np.array_split(arr, 3)
-
-# Unique
-np.unique(arr)
-
-# Random
 np.random.randint(1, 10, 5)
-np.random.random(5)
-np.random.uniform(10, 20, 5)
+np.random.uniform(1, 10, 5)
 np.random.normal(50, 10, 5)
-np.random.choice(arr)
 
-# Reproducibility
-np.random.seed(42)
-
-# NaN
-np.isnan(arr)
-np.nansum(arr)
-np.nanmean(arr)
-
-# Statistics
-np.percentile(arr, 25)
-np.quantile(arr, 0.25)
-
-# Linear algebra
-np.dot(a, b)
+a + b
+a * b
 a @ b
-np.linalg.det(A)
-np.linalg.inv(A)
-np.linalg.solve(A, b)
 
-# Save / Load
-np.save("data.npy", arr)
-arr = np.load("data.npy")
+np.concatenate((a, b))
 ```
-
 
 
